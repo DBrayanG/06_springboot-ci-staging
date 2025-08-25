@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/DBrayanG/06_springboot-ci-staging.git' // Cambia por tu repo real
+                git branch: 'main', url: 'https://github.com/DBrayanG/06_springboot-ci-staging.git' // Cambia por tu repo real
             }
         }
         stage('Code Quality') {
