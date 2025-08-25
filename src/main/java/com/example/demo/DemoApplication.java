@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @RestController
-public final class DemoApplication {
+public class DemoApplication {
 
     /**
      * Método principal.
      * @param args argumentos de la línea de comandos
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
 
