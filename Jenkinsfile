@@ -1,20 +1,15 @@
 pipeline {
     agent any
     environment {
-        STAGING_SERVER = 'user@192.168.0.16' // Cambia por tu usuario y la IP real de tu VM
-        ARTIFACT_NAME = 'demo-0.0.1-SNAPSHOT.jar' // Cambia si tu JAR tiene otro nombre
-        DEPLOY_PATH = '/home/user/staging/' // Cambia si usas otra ruta
-        HEALTH_URL = 'http://192.168.0.16:8080/health' // Cambia por la IP real de tu VM
+        STAGING_SERVER = 'user@192.168.0.16'
+        ARTIFACT_NAME = 'demo-0.0.1-SNAPSHOT.jar'
+        DEPLOY_PATH = '/home/user/staging/'
+        HEALTH_URL = 'http://192.168.0.16:8080/health'
     }
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/DBrayanG/06_springboot-ci-staging.git' // Cambia por tu repo real
-            }
-        }
-        stage('Code Quality') {
-            steps {
-                sh 'mvn checkstyle:check'
+                git branch: 'main', url: 'https://github.com/DBrayanG/06_springboot-ci-staging.git'
             }
         }
         stage('Test') {
@@ -25,6 +20,11 @@ pipeline {
         stage('Code Coverage') {
             steps {
                 sh 'mvn jacoco:report'
+            }
+        }
+        stage('Code Quality') {
+            steps {
+                sh 'mvn checkstyle:check'
             }
         }
         stage('Build') {
