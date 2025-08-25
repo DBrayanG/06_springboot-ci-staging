@@ -16,7 +16,7 @@ public final class DemoApplication {
      * Método principal.
      * @param args argumentos de la línea de comandos
      */
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
 
