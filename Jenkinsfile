@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 sh "scp target/${ARTIFACT_NAME} ${STAGING_SERVER}:${DEPLOY_PATH}"
-                sh "ssh ${STAGING_SERVER} 'nohup java -jar ${DEPLOY_PATH}${ARTIFACT_NAME} > /dev/null 2>&1 &'"
+                sh "ssh ${STAGING_SERVER} 'nohup java -jar ${DEPLOY_PATH}${ARTIFACT_NAME} > ${DEPLOY_PATH}nohup.out 2>&1 &'"
             }
         }
         stage('Validate Deployment') {
