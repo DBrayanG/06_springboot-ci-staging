@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Validate Deployment') {
             steps {
-                sh 'sleep 10'
+                sh 'sleep 30'
                 sh "curl --fail ${HEALTH_URL}"
             }
         }
